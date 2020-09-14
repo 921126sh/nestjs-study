@@ -10,6 +10,11 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "incremental": true,
+    "charset": "utf8",
+
+    /* Strict Checks */
+    "strictNullChecks": true, /* 엄격하게 undefined 및 null 관리 */
+    "noImplicitAny": true, /* any 타입 설정 시 에러 */
   }
 }

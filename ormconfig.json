@@ -1,0 +1,14 @@
+[
+  {
+    "name": "default",
+    "type": "mariadb",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "ch^*eol63m#!in",
+    "database": "cheol_board",
+    "schema": "",
+    "synchronize": false,
+    "entities": ["entities/*.js"]
+  }
+]
