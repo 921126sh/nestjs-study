@@ -1,20 +1,24 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { INestApplication } from "@nestjs/common";
-import { getConnection, getCustomRepository, getManager } from "typeorm";
+import {  getConnection, getCustomRepository, getManager, QueryRunner } from "typeorm";
 import { CUser } from "../src/entities/CUser";
 import { CUserRepository } from '../src/repository/CUserRepository';
 import { conn } from '../src/main.module';
 
 describe("Any Test", () => {
     let app: INestApplication;
+    let tracsaction: QueryRunner;
 
-    beforeEach(async () => {
+    beforeAll(async () => {
         const moduleFixture: TestingModule = await Test.createTestingModule({
             imports: [conn],
         }).compile();
 
         app = moduleFixture.createNestApplication();
         await app.init();
+        tracsaction = await getConnection("default").createQueryRunner();
+        await tracsaction.startTransaction();
+        
     });
 
     it.skip("User Save Test", async () => {
@@ -36,15 +40,10 @@ describe("Any Test", () => {
         console.log(user);
 
 
-    });
+    }); 
 
-    it("User Find One2", async () => {
-        const entityMaanager = getManager();
-        const user = await entityMaanager.findOne(CUser, <CUser>{email: "test@google.co.kr"});
-        console.log(user);
-    });    
-
-    afterEach(async() => {
+    afterAll(async() => {
+        await tracsaction.rollbackTransaction();
         const defaultConnection = getConnection('default')
         await defaultConnection.close()
     })
