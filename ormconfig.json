@@ -9,6 +9,6 @@
     "database": "cheol_board",
     "schema": "",
     "synchronize": false,
-    "entities": ["entities/*.js"]
+    "entities": ["src/entities/*{.ts, .js}"]
   }
 ]
