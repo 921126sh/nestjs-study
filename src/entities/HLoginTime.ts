@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Column,
   Entity,
   Index,
@@ -10,7 +11,7 @@ import { CUser } from "./CUser";
 
 @Index("FK_h_login_time_c_user", ["userId"], {})
 @Entity("h_login_time", { schema: "cheol_board" })
-export class HLoginTime {
+export class HLoginTime extends BaseEntity {
   @PrimaryGeneratedColumn({ type: "bigint", name: "idx" })
   idx: string;
 

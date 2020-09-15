@@ -5,7 +5,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 
 // typeorm-modelt-generator https://www.npmjs.com/package/typeorm-model-generator
 // auto import ormconfig.json
-const conn = TypeOrmModule.forRoot({});
+export const conn = TypeOrmModule.forRoot({});
 
 @Module({
     imports: [AppModule, LoginModule, conn],

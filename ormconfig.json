@@ -7,6 +7,7 @@
     "username": "root",
     "password": "ch^*eol63m#!in",
     "database": "cheol_board",
+    "timezone": "+09:00",
     "schema": "",
     "synchronize": false,
     "entities": ["src/entities/*{.ts, .js}"]
