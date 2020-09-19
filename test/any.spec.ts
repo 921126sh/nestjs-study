@@ -21,7 +21,7 @@ describe("Any Test", () => {
         
     });
 
-    it.skip("User Save Test", async () => {
+    it("User Save Test", async () => {
 
         const userRepositry = getCustomRepository(CUserRepository)
         const user = new CUser();
@@ -30,16 +30,16 @@ describe("Any Test", () => {
         user.pwd = "1111";
         user.nickname = "Test";
 
-        userRepositry.save(user);
+        console.log("생성");
+        console.log(await userRepositry.save(user));
     });
     
     it("User Find One", async () => {
         const entityMaanager = getManager();
         const user = await entityMaanager.findOne(CUser, <CUser>{email: "test@google.co.kr"});
-        console.log(new Date());
+
+        console.log("가져와라~");
         console.log(user);
-
-
     }); 
 
     afterAll(async() => {
